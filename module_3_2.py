@@ -1,7 +1,7 @@
 def send_email(message, recipient, sender="university.help@gmail.com"):
     domens = ('.com', '.ru', '.net')
-
-    if not(recipient.endswith(domens) and '@' in recipient) or not(sender.endswith(domens) and '@' in sender):
+    addr_err = lambda x: not (x.endswith(domens) and '@' in x)
+    if addr_err(sender) or addr_err(recipient):
         print(f'Невозможно отправить письмо с адреса {sender} на адрес {recipient}')
     elif sender == recipient:
         print('Нельзя отправить письмо самому себе!')
