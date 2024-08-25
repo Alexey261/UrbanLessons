@@ -13,6 +13,7 @@ class Eagle:
         self.y_distance = 0
         self.sound = 'I train, eat, sleep, and repeat'
 
+
     def fly(self, dy):
         self.y_distance += dy
         return self.y_distance
@@ -34,6 +35,7 @@ class Pegasus(Horse, Eagle):
 
 
 p1 = Pegasus()
+print(p1.get_pos())
 p1.move(10, 15)
 print(p1.get_pos())
 p1.move(-5, 20)
