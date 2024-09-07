@@ -4,22 +4,21 @@ from time import sleep
 class Knight(Thread):
 
     def __init__(self, name, power):
-        self.k_name = name
         self.power = power
-        super().__init__()
+        super().__init__(name=name)
 
     def run(self):
         enemies = 100
         days = 0
-        print(f'{self.k_name}! На нас напали!')
+        print(f'{self.name}! На нас напали!')
         while True:
             if enemies <= 0:
                 break
             days += 1
             enemies -= self.power
-            print(f'{self.k_name} сражается {days} {"день" if days == 1 else "дня" if days in (2,3,4) else "дней"}, осталось {enemies} врагов')
+            print(f'{self.name} сражается {days} {"день" if days == 1 else "дня" if days in (2,3,4) else "дней"}, осталось {enemies} врагов')
             sleep(0.5)
-        print(f'{self.k_name} одержал победу спустя {days} дней')
+        print(f'{self.name} одержал победу спустя {days} дней')
 
 
 first_knight = Knight("Sir Lancelot", 10)
