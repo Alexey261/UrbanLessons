@@ -19,7 +19,10 @@ def introspection_info(obj):
         inf['name'] = obj.__name__
     inf['type'] = obj.__class__.__name__
     inf['module'] = obj.__class__.__module__
-    inf['attributes'] = list(vars(obj).keys())
+    if hasattr(obj, '__dict__'):
+        inf['attributes'] = list(vars(obj).keys())
+    else:
+        inf['attributes'] = dir(obj)
     inf['methods'] = inspect.getmembers(obj, inspect.ismethod)
 
     return inf
