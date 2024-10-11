@@ -5,7 +5,7 @@ from runner_and_tournament import Runner, Tournament
     Если каждый тест-метод запускается в отдельном экземпляре класса TournamentTest, что подтверждается обнулением
     переменной index (отсюда self.__class__.index += 1), то почему словарь all_results не 'обнуляется', а сохраняет
     в себе значения предыдущих тестов, хотя оба атрибута одинаково определены в setUpClass (индекс нулевой, а словарь
-    пустой????"""
+    пустой)????"""
 
 class TournamentTest(unittest.TestCase):
 
