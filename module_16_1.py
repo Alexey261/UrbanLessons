@@ -15,5 +15,5 @@ async def user_page(user_id: int):
     return f"Вы вошли как пользователь № {user_id}"
 
 @app.get('/user')
-async def info(user_name: str = "XXX", age: int = 99):
+async def user_info(user_name: str = "XXX", age: int = 99):
     return f"Информация о пользователе. Имя: '{user_name}', возраст: {age}"
