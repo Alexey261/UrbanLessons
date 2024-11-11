@@ -26,7 +26,7 @@ async def add_user(username: Annotated[str, Path(min_length=5, max_length=20, de
 async def update_user(user_id: Annotated[int, Path(ge=1, le=100, description="Enter User ID", example='1')],
                       username: Annotated[str, Path(min_length=5, max_length=20, description='Enter username', example='UrbanUser')],
                       age: Annotated[int, Path(ge=18, le=120, description="Enter age", example='24')]) -> str:
-    users[user_id] = f'Имя: {username}, возраст: {age}'
+    users[str(user_id)] = f'Имя: {username}, возраст: {age}'
     return f"User {user_id} is updated"
 
 @app.delete('/user/{user_id}')
